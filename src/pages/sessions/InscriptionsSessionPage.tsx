@@ -528,7 +528,7 @@ export function InscriptionsSessionPage() {
         )}
       </div>
 
-      <div className="bg-white rounded-lg border border-accent-200 overflow-hidden">
+      <div className="bg-surface rounded-lg border border-accent-200 overflow-hidden">
         <DataTable
           columns={columns}
           data={inscriptions}

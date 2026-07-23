@@ -306,13 +306,13 @@ export function ConfigAccueilPage() {
         </div>
 
         <div className="col-span-1">
-          <div className="bg-white border border-accent-200 rounded-xl p-5 sticky top-4">
+          <div className="bg-surface border border-accent-200 rounded-xl p-5 sticky top-4">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-4 h-4 text-accent-400" />
               <span className="text-xs font-bold text-accent-500 uppercase tracking-widest">Aperçu</span>
             </div>
 
-            <div className="bg-accent-900 rounded-2xl p-3.5 overflow-hidden shadow-xl">
+            <div className="bg-asv-phone rounded-2xl p-3.5 overflow-hidden shadow-xl">
               <div className="flex items-center justify-between mb-3 px-1">
                 <span className="text-white/40 text-[9px] font-mono">9:41</span>
                 <div className="flex items-center gap-1">
@@ -327,7 +327,7 @@ export function ConfigAccueilPage() {
                 <div className="w-5 h-5 rounded-full bg-primary-500/30 border border-primary-400/30" />
               </div>
 
-              <div className="relative rounded-xl overflow-hidden mb-3 aspect-video bg-accent-800 flex items-center justify-center">
+              <div className="relative rounded-xl overflow-hidden mb-3 aspect-video bg-asv-phone-media flex items-center justify-center">
                 {activeImages.length > 0 ? (
                   <img 
                     src={activeImages[safeIdx].imageUrl} 
@@ -347,7 +347,7 @@ export function ConfigAccueilPage() {
                       <div
                         key={i}
                         className={`rounded-full shadow-sm transition-all ${
-                          i === safeIdx ? 'w-3 h-1 bg-white' : 'w-1 h-1 bg-white/50'
+                          i === safeIdx ? 'w-3 h-1 bg-[#ffffff]' : 'w-1 h-1 bg-[#ffffff]/50'
                         }`}
                       />
                     ))}
@@ -424,7 +424,7 @@ export function ConfigAccueilPage() {
           hasChanges ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div className="bg-white border-t border-accent-200 px-6 py-3 flex items-center justify-between gap-4">
+        <div className="bg-surface border-t border-accent-200 px-6 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <p className="text-sm text-accent-600 font-medium">Modifications non sauvegardées</p>

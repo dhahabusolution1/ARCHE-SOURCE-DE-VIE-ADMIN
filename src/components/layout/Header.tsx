@@ -74,7 +74,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
                 className="w-10 h-10 rounded-full object-cover ring-2 ring-primary-50 ring-offset-2"
               />
             ) : (
-              <div className="w-10 h-10 bg-primary-500 rounded-full text-white flex items-center justify-center text-sm font-bold shadow-md">
+              <div className="w-10 h-10 bg-primary-500 rounded-full text-primary-950 flex items-center justify-center text-sm font-bold shadow-md">
                 {initials}
               </div>
             )}

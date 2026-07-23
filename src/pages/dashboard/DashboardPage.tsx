@@ -93,7 +93,7 @@ export function DashboardPage() {
         <div className="flex items-center gap-3">
           <button 
             onClick={() => void window.location.reload()}
-            className="inline-flex items-center gap-2 p-2 bg-white border border-accent-200 rounded-md text-accent-600 hover:bg-accent-50 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 p-2 bg-surface border border-accent-200 rounded-md text-accent-600 hover:bg-accent-50 transition-colors cursor-pointer"
             title="Rafraîchir"
           >
             <RotateCw className="w-5 h-5" /> Actualiser
@@ -120,7 +120,7 @@ export function DashboardPage() {
 
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Chart */}
-            <div className="bg-white border border-accent-200 rounded-lg p-5">
+            <div className="bg-surface border border-accent-200 rounded-lg p-5">
               <h3 className="text-xs font-bold text-accent-900 uppercase tracking-widest mb-6 border-b border-accent-100 pb-3">Interactions mobiles</h3>
               {loading ? (
                 <div className="h-52 flex items-center justify-center text-xs text-accent-300">Chargement…</div>
@@ -152,7 +152,7 @@ export function DashboardPage() {
             </div>
 
             {/* Actions Rapides */}
-            <div className="bg-white border border-accent-200 rounded-lg p-5">
+            <div className="bg-surface border border-accent-200 rounded-lg p-5">
               <h3 className="text-xs font-bold text-accent-900 uppercase tracking-widest mb-4 border-b border-accent-100 pb-3">Raccourcis</h3>
               <div className="grid grid-cols-2 gap-2">
                 {QUICK_ACTIONS.map(({ label, icon: Icon, to, color }) => (
@@ -172,7 +172,7 @@ export function DashboardPage() {
           </section>
 
           {/* Événements */}
-          <section className="bg-white border border-accent-200 rounded-lg overflow-hidden">
+          <section className="bg-surface border border-accent-200 rounded-lg overflow-hidden">
             <div className="px-5 py-3 border-b border-accent-100 flex items-center justify-between bg-accent-50/50">
               <h3 className="text-xs font-bold text-accent-900 uppercase tracking-widest">Agenda</h3>
               <button onClick={() => navigate('/contenus/evenements')} className="text-[10px] font-bold text-primary-600 hover:underline">Voir tout</button>
@@ -187,7 +187,7 @@ export function DashboardPage() {
                     return (
                       <div key={evt.id} className="p-4 flex items-center justify-between hover:bg-accent-50 transition-colors">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 border border-accent-200 rounded flex flex-col items-center justify-center bg-white">
+                          <div className="w-10 h-10 border border-accent-200 rounded flex flex-col items-center justify-center bg-surface">
                             <span className="text-[8px] font-bold text-primary-600 uppercase leading-none">{d.toLocaleString('fr-FR', { month: 'short' }).replace('.', '')}</span>
                             <span className="text-sm font-black text-accent-900">{d.getDate()}</span>
                           </div>
@@ -210,11 +210,11 @@ export function DashboardPage() {
         <div className="xl:col-span-4 space-y-6">
           
           {/* Verset du Jour — Style Épuré */}
-          <section className="bg-primary-800 rounded-lg p-6 text-white border-l-4 border-white">
+          <section className="bg-primary-800 rounded-lg p-6 text-white border-l-4 border-amber-400">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-primary-300" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary-200">Édification</span>
+                <BookOpen className="w-4 h-4 text-amber-300" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300/80">Édification</span>
               </div>
               <button onClick={() => navigate('/contenus/versets')} className="p-1 hover:bg-white/10 rounded transition-colors cursor-pointer">
                 <Pencil className="w-4 h-4" />
@@ -222,21 +222,21 @@ export function DashboardPage() {
             </div>
 
             {versetLoading ? (
-              <div className="py-6 text-center text-xs text-primary-300">Chargement…</div>
+              <div className="py-6 text-center text-xs text-white/50">Chargement…</div>
             ) : !verset ? (
-              <p className="py-4 text-xs italic text-primary-300">Aucun verset programmé.</p>
+              <p className="py-4 text-xs italic text-white/50">Aucun verset programmé.</p>
             ) : (
               <div className="space-y-4">
-                <blockquote className="text-base font-bold leading-relaxed italic border-l-2 border-primary-400 pl-4">
+                <blockquote className="text-base font-bold leading-relaxed italic border-l-2 border-amber-400 pl-4 text-amber-100">
                   &ldquo;{verset.texte}&rdquo;
                 </blockquote>
                 <div>
                   <p className="text-sm font-bold text-white">{verset.reference}</p>
-                  <p className="text-[10px] text-primary-400 font-bold uppercase tracking-widest mt-1">{verset.versionBiblique}</p>
+                  <p className="text-[10px] text-amber-300/70 font-bold uppercase tracking-widest mt-1">{verset.versionBiblique}</p>
                 </div>
                 {verset.meditation && (
                   <div className="pt-3 border-t border-white/10">
-                    <p className="text-[11px] leading-relaxed text-primary-50 italic">
+                    <p className="text-[11px] leading-relaxed text-white/60 italic">
                       {verset.meditation}
                     </p>
                   </div>
@@ -246,7 +246,7 @@ export function DashboardPage() {
           </section>
 
           {/* Urgences */}
-          <section className="bg-white border border-accent-200 rounded-lg p-5">
+          <section className="bg-surface border border-accent-200 rounded-lg p-5">
             <h3 className="text-xs font-bold text-accent-900 uppercase tracking-widest mb-4 border-b border-accent-100 pb-3">En attente</h3>
             <div className="space-y-2">
               {[

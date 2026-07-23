@@ -88,7 +88,7 @@ function SidebarSection({ title, items, role }: { title: string; items: NavItem[
           className={({ isActive }) =>
             `flex items-center gap-3 px-6 py-2.5 text-sm transition-all duration-200 ${
               isActive
-                ? 'bg-primary-500 text-white font-semibold border-l-4 border-white'
+                ? 'bg-primary-500 text-primary-950 font-semibold border-l-4 border-primary-950'
                 : 'text-white/70 hover:bg-white/10 hover:text-white'
             }`
           }
@@ -107,7 +107,7 @@ export function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 w-64 bg-primary-800 flex flex-col z-40 h-screen overflow-hidden transition-transform duration-300 transform ${
+      className={`fixed inset-y-0 left-0 w-64 bg-asv-sidebar flex flex-col z-40 h-screen overflow-hidden transition-transform duration-300 transform ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       } lg:translate-x-0`}
     >
@@ -141,7 +141,7 @@ export function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
             className={({ isActive }) =>
               `flex items-center gap-3 px-6 py-3.5 text-sm transition-all duration-200 ${
                 isActive
-                  ? 'bg-primary-500 text-white font-semibold border-l-4 border-white'
+                  ? 'bg-primary-500 text-primary-950 font-semibold border-l-4 border-primary-950'
                   : 'text-white/70 hover:bg-white/10 hover:text-white'
               }`
             }

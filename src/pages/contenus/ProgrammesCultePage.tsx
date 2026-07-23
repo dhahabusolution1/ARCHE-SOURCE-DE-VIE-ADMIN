@@ -1,4 +1,4 @@
-ï»¿import { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client/react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,9 +29,9 @@ const LIMIT = 10;
 
 const STATUT_OPTIONS = [
   { value: 'BROUILLON', label: 'Brouillon' },
-  { value: 'PUBLIE', label: 'PubliÃ©' },
-  { value: 'ANNULE', label: 'AnnulÃ©' },
-  { value: 'TERMINE', label: 'TerminÃ©' },
+  { value: 'PUBLIE', label: 'Publié' },
+  { value: 'ANNULE', label: 'Annulé' },
+  { value: 'TERMINE', label: 'Terminé' },
 ];
 
 const programmeSchema = z.object({
@@ -146,10 +146,10 @@ export function ProgrammesCultePage() {
 
         if (editing) {
           await modifierProgramme({ variables: { id: editing.id, input } });
-          toast.success('Programme modifiÃ©');
+          toast.success('Programme modifié');
         } else {
           await creerProgramme({ variables: { input } });
-          toast.success('Programme crÃ©Ã©');
+          toast.success('Programme créé');
         }
         closeForm();
         refetch();
@@ -164,7 +164,7 @@ export function ProgrammesCultePage() {
     await run(async () => {
       try {
         await supprimerProgramme({ variables: { id: toDelete.id } });
-        toast.success('Programme supprimÃ©');
+        toast.success('Programme supprimé');
         setToDelete(null);
         refetch();
       } catch {
@@ -211,7 +211,7 @@ export function ProgrammesCultePage() {
           </div>
           <div className="flex items-center gap-1.5 text-[10px] text-accent-400 font-medium uppercase tracking-tight">
             <Clock size={10} />
-            {row.original.heure || 'Heure non prÃ©cisÃ©e'}
+            {row.original.heure || 'Heure non précisée'}
           </div>
         </div>
       ),
@@ -254,7 +254,7 @@ export function ProgrammesCultePage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-accent-900 tracking-tight">Programmes de Culte</h1>
-          <p className="text-sm text-accent-400 font-medium italic">GÃ©rez la diffusion et la planification de vos cultes en ligne</p>
+          <p className="text-sm text-accent-400 font-medium italic">Gérez la diffusion et la planification de vos cultes en ligne</p>
         </div>
         <Button 
           variant="dark" 
@@ -268,10 +268,10 @@ export function ProgrammesCultePage() {
       <SearchInput
         value={search}
         onChange={(v) => { setSearch(v); setOffset(0); }}
-        placeholder="Rechercher par titre, lieu, organisateurâ€¦"
+        placeholder="Rechercher par titre, lieu, organisateur…"
       />
 
-      <div className="bg-white rounded-lg border border-accent-200 overflow-hidden">
+      <div className="bg-surface rounded-lg border border-accent-200 overflow-hidden">
         <DataTable
           columns={columns}
           data={data?.getEvenements.items ?? []}
@@ -280,14 +280,14 @@ export function ProgrammesCultePage() {
           offset={offset}
           total={data?.getEvenements.totalCount ?? 0}
           onPageChange={setOffset}
-          emptyMessage="Aucun programme de culte planifiÃ©."
+          emptyMessage="Aucun programme de culte planifié."
         />
       </div>
 
       <ConfirmModal
         isOpen={!!toDelete}
         title="Supprimer ce programme"
-        message={`Voulez-vous supprimer le programme Â« ${toDelete?.titre} Â» ? Cette action est irrÃ©versible.`}
+        message={`Voulez-vous supprimer le programme « ${toDelete?.titre} » ? Cette action est irréversible.`}
         confirmLabel="Supprimer"
         onConfirm={() => void handleSupprimer()}
         onCancel={() => setToDelete(null)}
@@ -309,7 +309,7 @@ export function ProgrammesCultePage() {
               onClick={handleSubmit(onSubmit)} 
               isLoading={isSubmitting}
             >
-              {editing ? 'Enregistrer les modifications' : 'CrÃ©er le programme'}
+              {editing ? 'Enregistrer les modifications' : 'Créer le programme'}
             </Button>
           </>
         )}
@@ -319,7 +319,7 @@ export function ProgrammesCultePage() {
             <label className="text-[10px] font-bold text-accent-400 uppercase tracking-widest">Titre du culte <span className="text-danger">*</span></label>
             <input
               {...register('titre')}
-              placeholder="Ex: Culte de Dominical - ThÃ¨me: La puissance de la foi"
+              placeholder="Ex: Culte de Dominical - Thème: La puissance de la foi"
               className="w-full text-sm px-4 py-2.5 bg-accent-50 border border-accent-200 rounded-lg outline-none focus:border-primary-500 transition-all font-sans"
             />
             {errors.titre && <p className="text-[10px] text-danger font-bold mt-1 uppercase">{errors.titre.message}</p>}
@@ -339,7 +339,7 @@ export function ProgrammesCultePage() {
             </div>
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-accent-400 uppercase tracking-widest flex items-center gap-1.5">
-                <Clock size={10} /> Heure de dÃ©but
+                <Clock size={10} /> Heure de début
               </label>
               <input
                 type="time"
@@ -385,11 +385,11 @@ export function ProgrammesCultePage() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-[10px] font-bold text-accent-400 uppercase tracking-widest">Description / DÃ©tails</label>
+            <label className="text-[10px] font-bold text-accent-400 uppercase tracking-widest">Description / Détails</label>
             <textarea
               {...register('description')}
               rows={3}
-              placeholder="Orateur, programme dÃ©taillÃ©..."
+              placeholder="Orateur, programme détaillé..."
               className="w-full text-sm px-4 py-2.5 bg-accent-50 border border-accent-200 rounded-lg outline-none focus:border-primary-500 resize-none transition-all font-sans"
             />
           </div>
@@ -404,8 +404,8 @@ export function ProgrammesCultePage() {
                 onChange={setImageUrl}
               />
               <div className="space-y-1.5 text-[10px] text-accent-500 italic">
-                <p>L'image sera utilisÃ©e comme miniature sur l'application mobile.</p>
-                <p className="mt-2 text-accent-400">Si non prÃ©cisÃ©e, l'icÃ´ne par dÃ©faut sera utilisÃ©e.</p>
+                <p>L'image sera utilisée comme miniature sur l'application mobile.</p>
+                <p className="mt-2 text-accent-400">Si non précisée, l'icône par défaut sera utilisée.</p>
               </div>
             </div>
           </div>

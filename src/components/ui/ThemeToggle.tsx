@@ -25,7 +25,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}
-      className="p-2 rounded-lg border border-accent-200 text-accent-600 hover:bg-accent-50 hover:text-primary-600 transition-colors"
+      className="p-2 rounded-lg border border-accent-200 text-accent-700 hover:bg-accent-100 hover:text-primary-500 transition-colors"
       title={theme === 'light' ? 'Passer en thème sombre' : 'Passer en thème clair'}
       aria-label="Basculer le thème"
     >

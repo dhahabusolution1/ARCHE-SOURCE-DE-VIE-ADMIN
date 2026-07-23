@@ -57,7 +57,7 @@ export function DataTable<T>({
       <div className="relative overflow-x-auto rounded-lg border border-accent-200 bg-surface">
         {isRefetching && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-surface/75 backdrop-blur-[1px]">
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-accent-200 shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface border border-accent-200 shadow-sm">
               <Loader2 className="w-4 h-4 text-primary-500 animate-spin" />
               <span className="text-xs font-medium text-accent-600">Mise à jour…</span>
             </div>

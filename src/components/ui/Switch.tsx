@@ -23,7 +23,7 @@ export function Switch({ checked, onChange, disabled = false }: SwitchProps) {
       <span
         aria-hidden="true"
         className={`
-          pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out
+          pointer-events-none inline-block h-4 w-4 transform rounded-full bg-[#ffffff] shadow ring-0 transition duration-200 ease-in-out
           ${checked ? 'translate-x-4' : 'translate-x-0'}
         `}
       />

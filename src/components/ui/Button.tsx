@@ -25,8 +25,8 @@ export function Button({
   const baseStyles = 'inline-flex items-center justify-center font-bold transition-all cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 active:scale-95';
   
   const variants = {
-    primary: 'bg-primary-500 text-white hover:bg-primary-600',
-    dark:    'bg-accent-900 text-white hover:bg-accent-800',
+    primary: 'bg-primary-500 text-primary-950 hover:bg-primary-600',
+    dark:    'bg-primary-900 text-accent-900 hover:bg-primary-800',
     outline: 'bg-transparent border border-accent-200 text-accent-800 hover:bg-accent-50',
     ghost:   'bg-transparent text-accent-600 hover:bg-accent-100',
     danger:  'text-danger hover:bg-red-50',

@@ -236,7 +236,7 @@ export function SessionsPage() {
         </Button>
       </div>
 
-      <div className="flex items-center gap-3 bg-white p-3 border border-accent-200 rounded-lg">
+      <div className="flex items-center gap-3 bg-surface p-3 border border-accent-200 rounded-lg">
         <label className="text-[10px] font-bold text-accent-400 uppercase tracking-widest ml-1 whitespace-nowrap">Filtrer par type :</label>
         <select
           value={filterType}
@@ -249,7 +249,7 @@ export function SessionsPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-lg border border-accent-200 overflow-hidden">
+      <div className="bg-surface rounded-lg border border-accent-200 overflow-hidden">
         <DataTable
           columns={columns}
           data={data?.getSessions ?? []}

@@ -48,30 +48,39 @@
   --radius-full: 9999px;
 }
 
-/* ── Thème sombre — Bordeaux + Or ── */
+/* ── Thème sombre — Bordeaux profond + Or (contraste lisible) ── */
 [data-theme="dark"] {
-  --color-primary-50:  #fef9e7;
-  --color-primary-100: #fcedc4;
-  --color-primary-200: #f5d98a;
-  --color-primary-300: #e8b923;
-  --color-primary-400: #d4a017;
-  --color-primary-500: #d4a017;
-  --color-primary-600: #b8860b;
-  --color-primary-700: #8b6914;
-  --color-primary-800: #6b5010;
-  --color-primary-900: #4a380c;
-  --color-primary-950: #2a1f08;
+  color-scheme: dark;
 
-  --color-accent-50:  #3d2424;
-  --color-accent-100: #4a2c2c;
-  --color-accent-200: #5c3838;
-  --color-accent-300: #7a5555;
-  --color-accent-400: #a88888;
-  --color-accent-500: #c4a8a8;
-  --color-accent-600: #dcc8c8;
-  --color-accent-700: #ebe0e0;
-  --color-accent-800: #f5f0f0;
-  --color-accent-900: #faf7f7;
+  /*
+   * Primary hybride :
+   * 50–200 = teintes sombres (fonds soft type bg-primary-50)
+   * 400–600 = or vif (CTA / actif)
+   * 800–950 = bordeaux profond (cartes « Édification », encarts)
+   */
+  --color-primary-50:  #2a1f0a;
+  --color-primary-100: #3d2e0c;
+  --color-primary-200: #5c4510;
+  --color-primary-300: #8b6914;
+  --color-primary-400: #c9a227;
+  --color-primary-500: #d4a017;
+  --color-primary-600: #e8b923;
+  --color-primary-700: #f0c94a;
+  --color-primary-800: #1a100c;
+  --color-primary-900: #120b08;
+  --color-primary-950: #0a0604;
+
+  /* Accent inversé : 50 = surface, 900 = texte clair */
+  --color-accent-50:  #241616;
+  --color-accent-100: #2e1c1c;
+  --color-accent-200: #3f2a2a;
+  --color-accent-300: #5c4040;
+  --color-accent-400: #9a7a7a;
+  --color-accent-500: #b89898;
+  --color-accent-600: #d4c0c0;
+  --color-accent-700: #e8dcdc;
+  --color-accent-800: #f3ecec;
+  --color-accent-900: #faf6f6;
   --color-accent-950: #ffffff;
 
   --color-success: #34d399;
@@ -79,9 +88,30 @@
   --color-danger:  #f87171;
   --color-info:    #d4a017;
 
-  --color-surface:      #3d1f1f;
-  --color-surface-soft: #4a2828;
-  --color-background:   #2a1515;
+  --color-surface:      #241616;
+  --color-surface-soft: #2e1c1c;
+  --color-background:   #120a0a;
+
+  /* Badges soft (emerald / amber / sky / red) → versions dark */
+  --color-emerald-50:  #0a2e22;
+  --color-emerald-100: #0f3d2e;
+  --color-emerald-600: #34d399;
+  --color-emerald-700: #6ee7b7;
+  --color-amber-50:    #2e2208;
+  --color-amber-100:   #3d2e0a;
+  --color-amber-600:   #fbbf24;
+  --color-amber-700:   #fcd34d;
+  --color-sky-50:      #0c2433;
+  --color-sky-100:     #0f3044;
+  --color-sky-600:     #38bdf8;
+  --color-sky-700:     #7dd3fc;
+  --color-red-50:      #2e1212;
+  --color-red-100:     #3d1818;
+  --color-red-600:     #f87171;
+  --color-red-700:     #fca5a5;
+
+  --asv-sidebar-bg: #0e0808;
+  --asv-sidebar-active: #d4a017;
 }
 
 button:not(:disabled),
@@ -117,7 +147,7 @@ body {
 
 [data-theme="dark"] .bg-pe-gradient,
 [data-theme="dark"] .bg-asv-gradient {
-  background: linear-gradient(135deg, #4a1c1c 0%, #2a1515 55%, #1a0c0c 100%);
+  background: linear-gradient(135deg, #3d1f1f 0%, #1a0c0c 60%, #0f0808 100%);
 }
 
 .bg-accent-gradient {
@@ -125,5 +155,105 @@ body {
 }
 
 [data-theme="dark"] .bg-accent-gradient {
-  background: linear-gradient(135deg, #2a1515 0%, #1a0c0c 100%);
+  background: linear-gradient(135deg, #2a1818 0%, #140c0c 100%);
+}
+
+.bg-asv-sidebar {
+  background: #7c2d12;
+}
+
+[data-theme="dark"] .bg-asv-sidebar {
+  background: var(--asv-sidebar-bg, #0e0808);
+}
+
+/* Mock téléphone (aperçu app) — toujours sombre, indépendant du thème admin */
+.bg-asv-phone {
+  background: #120a0a;
+  color: #faf6f6;
+}
+
+.bg-asv-phone-media {
+  background: #1a1010;
+}
+
+/* Fallback si --color-white n’est pas repris par Tailwind */
+[data-theme="dark"] .bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+[data-theme="dark"] .bg-white\/80,
+[data-theme="dark"] .bg-white\/90 {
+  background-color: color-mix(in srgb, var(--color-surface) 90%, transparent) !important;
+}
+
+[data-theme="dark"] .hover\:bg-white:hover {
+  background-color: var(--color-surface-soft) !important;
+}
+
+/* text-white sur fonds gold / sidebar : garder le blanc réel */
+[data-theme="dark"] .text-white {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .border-white {
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"] .border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1) !important;
+}
+
+[data-theme="dark"] .hover\:bg-white\/10:hover,
+[data-theme="dark"] .bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1) !important;
+}
+
+[data-theme="dark"] .bg-white\/5 {
+  background-color: rgb(255 255 255 / 0.05) !important;
+}
+
+[data-theme="dark"] .bg-white\/30 {
+  background-color: rgb(255 255 255 / 0.3) !important;
+}
+
+[data-theme="dark"] .hover\:bg-accent-50:hover {
+  background-color: var(--color-accent-100) !important;
+}
+
+/* CTA or : texte sombre pour contraste AA (si text-white encore présent) */
+[data-theme="dark"] .bg-primary-500.text-white,
+[data-theme="dark"] .bg-primary-600.text-white,
+[data-theme="dark"] button.bg-primary-500,
+[data-theme="dark"] a.bg-primary-500,
+[data-theme="dark"] button.bg-primary-600,
+[data-theme="dark"] a.bg-primary-600 {
+  color: #120b08 !important;
+}
+
+[data-theme="dark"] .rounded-full.bg-primary-500 {
+  color: #120b08 !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--color-accent-100);
+  color: var(--color-accent-900);
+  border-color: var(--color-accent-200);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--color-accent-400);
+}
+
+[data-theme="dark"] .ring-offset-2,
+[data-theme="dark"] .ring-offset-white {
+  --tw-ring-offset-color: var(--color-background);
+}
+
+/* Point statut online (header) */
+[data-theme="dark"] .border-white.rounded-full,
+[data-theme="dark"] .border-2.border-white {
+  border-color: var(--color-surface) !important;
 }

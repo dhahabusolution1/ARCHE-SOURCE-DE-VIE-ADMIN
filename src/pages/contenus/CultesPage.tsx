@@ -255,7 +255,7 @@ export function CultesPage() {
         </Button>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 bg-white p-3 border border-accent-200 rounded-lg">
+      <div className="flex flex-wrap items-center gap-4 bg-surface p-3 border border-accent-200 rounded-lg">
         <SearchInput
           value={search}
           onChange={(v) => { setSearch(v); setOffset(0); }}
@@ -291,7 +291,7 @@ export function CultesPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg border border-accent-200 overflow-hidden">
+      <div className="bg-surface rounded-lg border border-accent-200 overflow-hidden">
         <DataTable
           columns={columns}
           data={data?.getCultes.items ?? []}

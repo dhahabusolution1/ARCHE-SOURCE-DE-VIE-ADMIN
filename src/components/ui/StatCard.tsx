@@ -10,11 +10,11 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon, description, variant = 'accent' }: StatCardProps) {
   const variants = {
-    primary: 'border-primary-200 bg-white',
-    success: 'border-emerald-200 bg-white',
-    warning: 'border-amber-200 bg-white',
-    info:    'border-sky-200 bg-white',
-    accent:  'border-accent-200 bg-white',
+    primary: 'border-primary-200 bg-surface',
+    success: 'border-emerald-200 bg-surface',
+    warning: 'border-amber-200 bg-surface',
+    info:    'border-sky-200 bg-surface',
+    accent:  'border-accent-200 bg-surface',
   };
 
   const iconColors = {

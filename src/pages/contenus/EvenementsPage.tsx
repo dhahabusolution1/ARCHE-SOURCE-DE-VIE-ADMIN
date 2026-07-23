@@ -276,7 +276,7 @@ export function EvenementsPage() {
         </Button>
       </div>
 
-      <div className="flex items-center gap-3 bg-white p-3 border border-accent-200 rounded-lg">
+      <div className="flex items-center gap-3 bg-surface p-3 border border-accent-200 rounded-lg">
         <SearchInput
           value={search}
           onChange={(v) => { setSearch(v); setOffset(0); }}
@@ -298,7 +298,7 @@ export function EvenementsPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-lg border border-accent-200 overflow-hidden">
+      <div className="bg-surface rounded-lg border border-accent-200 overflow-hidden">
         <DataTable
           columns={columns}
           data={data?.getEvenements.items ?? []}

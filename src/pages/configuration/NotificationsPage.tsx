@@ -152,14 +152,14 @@ export function NotificationsPage() {
 
         {/* Aperçu mobile — 1/3 */}
         <div className="col-span-1">
-          <div className="bg-white border border-accent-200 rounded-xl p-5 sticky top-4">
+          <div className="bg-surface border border-accent-200 rounded-xl p-5 sticky top-4">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-4 h-4 text-accent-400" />
               <span className="text-xs font-bold text-accent-500 uppercase tracking-widest">Aperçu</span>
             </div>
 
-            {/* Mock écran téléphone */}
-            <div className="bg-accent-900 rounded-2xl p-3.5 overflow-hidden">
+            {/* Mock écran téléphone — toujours sombre */}
+            <div className="bg-asv-phone rounded-2xl p-3.5 overflow-hidden">
               {/* Barre de statut */}
               <div className="flex items-center justify-between mb-4 px-1">
                 <span className="text-white/40 text-[9px] font-mono">9:41</span>

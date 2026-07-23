@@ -14,7 +14,7 @@ const VARIANT_CLASSES: Record<BadgeVariant, string> = {
   danger:  'bg-red-50 text-red-700 border-red-100',
   info:    'bg-sky-50 text-sky-700 border-sky-100',
   neutral: 'bg-accent-50 text-accent-600 border-accent-100',
-  dark:    'bg-accent-900 text-white border-accent-900',
+  dark:    'bg-primary-900 text-accent-900 border-primary-800',
 };
 
 const DOT_CLASSES: Record<BadgeVariant, string> = {
@@ -24,7 +24,7 @@ const DOT_CLASSES: Record<BadgeVariant, string> = {
   danger:  'bg-red-500',
   info:    'bg-sky-500',
   neutral: 'bg-accent-400',
-  dark:    'bg-white',
+  dark:    'bg-accent-900',
 };
 
 // ─── Mappages statuts → variantes ─────────────────────────────────────────────
